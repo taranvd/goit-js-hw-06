@@ -10,24 +10,25 @@ const inputNumber = document.querySelector("input[type='number']");
 const boxesDivEl = document.getElementById("boxes");
 
 const createBoxes = () => {
-	const amount = +inputNumber.value;
+	const amount = inputNumber.value;
 	let width = 30;
 	let height = 30;
 
-	for (let i = 0; i < amount; i++) {
+	for (let i = 0; i < amount; i += 1) {
 		const createDivEl = document.createElement("div");
 		createDivEl.style.width = `${width}px`;
 		createDivEl.style.height = `${height}px`;
 		createDivEl.style.backgroundColor = getRandomHexColor();
 
-		boxesDivEl.appendChild(createDivEl);
-
 		width += 10;
 		height += 10;
+
+		boxesDivEl.append(createDivEl);
 	}
 };
 
 divCreateButton.addEventListener("click", createBoxes);
+
 divDestroyButton.addEventListener("click", () => {
 	boxesDivEl.innerHTML = "";
 });
