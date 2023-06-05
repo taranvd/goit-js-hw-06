@@ -4,19 +4,21 @@ const incrementBtn = document.querySelector("[data-action='increment']");
 
 let counterValue = 0;
 
-incrementBtn.addEventListener("click", handleIncrementButtonClock);
-decrementBtn.addEventListener("click", handleDecrementButtonClock);
+incrementBtn.addEventListener("click", incrementButton);
 
-function handleIncrementButtonClock() {
+decrementBtn.addEventListener("click", decrementButton);
+
+function incrementButton() {
 	counterValue++;
-	updateCurrentValueUI();
+	return updateValueUI();
 }
 
-function handleDecrementButtonClock() {
+function decrementButton() {
 	counterValue--;
-	updateCurrentValueUI();
+
+	return updateValueUI();
 }
 
-function updateCurrentValueUI() {
-	currentValue.textContent = counterValue;
+function updateValueUI() {
+	return (currentValue.textContent = counterValue);
 }

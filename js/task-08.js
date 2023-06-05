@@ -3,32 +3,22 @@ const inputEmailEl = document.querySelector('[name="email"]');
 const inputPasswordEl = document.querySelector('[name="password"]');
 const submitButtonEl = document.querySelector(".login-form > button");
 
-loginFormEl.addEventListener("submit", (e) => {
-	e.preventDefault();
+loginFormEl.addEventListener("submit", (event) => {
+	event.preventDefault();
+
+	const formData = new FormData(event.currentTarget);
 
 	if (!inputEmailEl.value || !inputPasswordEl.value) {
-		return alert("Всі поля повинні бути заповнені");
+		alert("Всі поля повинні бути заповнені");
 	}
 
-	const formData = new FormData(e.currentTarget);
-	const dataObj = {};
+	const objData = {};
+
 	formData.forEach((value, key) => {
-		dataObj[key] = value;
+		objData[key] = value;
 	});
 
-	console.log(dataObj);
-
-	//* варіант 2
-	// const formElements = e.currentTarget.elements;
-	// const email = formElements.email.value;
-	// const password = formElements.password.value;
-
-	// const formData = {
-	// 	email,
-	// 	password,
-	// };
-
-	// console.log(formData);
+	console.log(objData);
 
 	loginFormEl.reset();
 });
