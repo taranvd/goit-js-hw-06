@@ -10,15 +10,15 @@ loginFormEl.addEventListener("submit", (event) => {
 
 	if (!inputEmailEl.value || !inputPasswordEl.value) {
 		alert("Всі поля повинні бути заповнені");
+	} else {
+		const objData = {};
+
+		formData.forEach((value, key) => {
+			objData[key] = value;
+		});
+
+		console.log(objData);
 	}
-
-	const objData = {};
-
-	formData.forEach((value, key) => {
-		objData[key] = value;
-	});
-
-	console.log(objData);
 
 	loginFormEl.reset();
 });
