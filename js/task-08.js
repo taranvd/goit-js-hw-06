@@ -18,7 +18,6 @@ loginFormEl.addEventListener("submit", (event) => {
 		});
 
 		console.log(objData);
+		loginFormEl.reset();
 	}
-
-	loginFormEl.reset();
 });
